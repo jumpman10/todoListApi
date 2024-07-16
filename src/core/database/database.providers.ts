@@ -18,17 +18,17 @@ export const databaseProviders = [
           break;
         case PRODUCTION:
           config = databaseConfig.production;
+          config.dialectModule = pg;
+          config.dialectOptions = {
+            ssl: {
+              require: true,
+              rejectUnauthorized: false,
+            },
+          };
           break;
         default:
           config = databaseConfig.development;
       }
-      config.dialectModule = pg;
-      config.dialectOptions = {
-        ssl: {
-          require: true,
-          rejectUnauthorized: false,
-        },
-      };
       const sequelize = new Sequelize(config);
       sequelize.addModels([User, Task]);
       await sequelize.sync();
