@@ -10,7 +10,8 @@
         "TOKEN_EXPIRATION":"24h",
         "BEARER":"Bearer",
         "NODE_ENV":"PRODUCTION",
-        "POSTGRES_URL":"postgres://default:foADjQn8k5Sb@ep-summer-credit-a4lrur2c-pooler.us-east-1.aws.neon.tech:5432/verceldb?sslmode=require"
+        "POSTGRES_URL":"postgres://default:foADjQn8k5Sb@ep-summer-credit-a4lrur2c-pooler.us-east-1.aws.neon.tech:5432/verceldb?sslmode=require",
+        "JWTKEY":"random_secret_key"  
     },
     "builds": [
         {

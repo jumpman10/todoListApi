@@ -25,11 +25,10 @@ export class TasksController {
     return await this.taskService.findAll();
   }
 
-  @UseGuards(AuthGuard('jwt'))
-  @Get('/user')
-  async findbyUser(@Param('userId') id: number, @Request() req) {
+  @Get('/user/:id')
+  async findbyUser(@Param('id') id: number) {
     // find the post with this id
-    return await this.taskService.findbyUser(req.user.id);
+    return await this.taskService.findbyUser(id);
   }
 
   @Get(':id')
