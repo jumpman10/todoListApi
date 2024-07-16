@@ -20,6 +20,7 @@ export const databaseProviders = [
           config = databaseConfig.development;
       }
       config.dialectModule = pg;
+      config.ssl = true;
       const sequelize = new Sequelize(config);
       sequelize.addModels([User, Task]);
       await sequelize.sync();
