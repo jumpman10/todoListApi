@@ -21,7 +21,10 @@ export const databaseProviders = [
       }
       config.dialectModule = pg;
       config.dialectOptions = {
-        ssl: true,
+        ssl: {
+          require: true,
+          rejectUnauthorized: false,
+        },
       };
       const sequelize = new Sequelize(config);
       sequelize.addModels([User, Task]);
