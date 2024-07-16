@@ -1,5 +1,5 @@
 {
-    "version": 2,
+    "version": 1,
     "env": {
         "DB_HOST": "ep-summer-credit-a4lrur2c-pooler.us-east-1.aws.neon.tech",
         "DB_PORT":"5432",
@@ -8,7 +8,8 @@
         "DB_DIALECT":"postgres",
         "DB_NAME_PRODUCTION":"verceldb",
         "TOKEN_EXPIRATION":"48h",
-        "BEARER":"Bearer"
+        "BEARER":"Bearer",
+        "NODE_ENV":"PRODUCTION"
     },
     "builds": [
         {
