@@ -1,5 +1,5 @@
 import { Sequelize } from 'sequelize-typescript';
-import { SEQUELIZE, DEVELOPMENT, TEST } from '../constants';
+import { SEQUELIZE, DEVELOPMENT, TEST, PRODUCTION } from '../constants';
 import { databaseConfig } from './database.config';
 import { User } from '../../modules/users/user.entity';
 import { Task } from '../../modules/tasks/task.entity';
@@ -15,6 +15,9 @@ export const databaseProviders = [
           break;
         case TEST:
           config = databaseConfig.test;
+          break;
+        case PRODUCTION:
+          config = databaseConfig.production;
           break;
         default:
           config = databaseConfig.development;
