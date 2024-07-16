@@ -2,7 +2,7 @@
     "version": 2,
     "env": {
         "DB_HOST": "ep-summer-credit-a4lrur2c-pooler.us-east-1.aws.neon.tech",
-        "DB_PORT":5432,
+        "DB_PORT":"5432",
         "DB_USER":"default",
         "DB_PASS":"foADjQn8k5Sb",
         "DB_DIALECT":"postgres",
