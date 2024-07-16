@@ -7,7 +7,7 @@
         "DB_PASS":"foADjQn8k5Sb",
         "DB_DIALECT":"postgres",
         "DB_NAME_PRODUCTION":"verceldb",
-        "TOKEN_EXPIRATION":"48h",
+        "TOKEN_EXPIRATION":"24h",
         "BEARER":"Bearer",
         "NODE_ENV":"PRODUCTION"
     },
