@@ -34,8 +34,8 @@ export class TasksService {
     });
   }
 
-  async delete(id, userId) {
-    return await this.taskRepository.destroy({ where: { id, userId } });
+  async delete(id) {
+    return await this.taskRepository.destroy({ where: { id } });
   }
 
   async update(id, data) {

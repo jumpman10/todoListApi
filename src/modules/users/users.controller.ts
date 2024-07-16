@@ -11,7 +11,7 @@ import {
 import { AuthGuard } from '@nestjs/passport';
 import { UsersService } from './users.service';
 import { User as UserEntity } from './user.entity';
-import { UserDto, updateUserDto } from './dto/user.dto';
+import { updateUserDto } from './dto/user.dto';
 
 @Controller('users')
 export class UsersController {

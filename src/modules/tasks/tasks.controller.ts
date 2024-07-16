@@ -13,7 +13,7 @@ import {
 import { AuthGuard } from '@nestjs/passport';
 import { TasksService } from './tasks.service';
 import { Task as TaskEntity } from './task.entity';
-import { TaskDto } from './dto/task.dto';
+import { TaskDto, updateTaskDto } from './dto/task.dto';
 
 @Controller('tasks')
 export class TasksController {
@@ -25,10 +25,11 @@ export class TasksController {
     return await this.taskService.findAll();
   }
 
-  @Get('/user/:userId')
-  async findbyUser(@Param('userId') id: number) {
+  @UseGuards(AuthGuard('jwt'))
+  @Get('/user')
+  async findbyUser(@Param('userId') id: number, @Request() req) {
     // find the post with this id
-    return await this.taskService.findbyUser(id);
+    return await this.taskService.findbyUser(req.user.id);
   }
 
   @Get(':id')
@@ -56,7 +57,7 @@ export class TasksController {
   @Put(':id')
   async update(
     @Param('id') id: number,
-    @Body() task: TaskDto,
+    @Body() task: updateTaskDto,
   ): Promise<TaskEntity> {
     // get the number of row affected and the updated post
     const { numberOfAffectedRows, updatedTask } = await this.taskService.update(
@@ -76,9 +77,9 @@ export class TasksController {
 
   @UseGuards(AuthGuard('jwt'))
   @Delete(':id')
-  async remove(@Param('id') id: number, @Request() req) {
+  async remove(@Param('id') id: number) {
     // delete the post with this id
-    const deleted = await this.taskService.delete(id, req.user.id);
+    const deleted = await this.taskService.delete(id);
 
     // if the number of row affected is zero,
     // then the post doesn't exist in our db
